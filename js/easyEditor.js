@@ -108,7 +108,7 @@ EasyEditor.prototype = {
 		}
 		return this;
 	},
-	getContent: function(bol, func) {
+	getContent: function(bol) {
 		var oldHtml = this.obj.innerHTML;
 		if(typeof bol == 'function') {
 			var func = bol;
@@ -133,9 +133,6 @@ EasyEditor.prototype = {
 			res = res.replace(/<\/div>/g,'#easyEditor#');
 			res = res.replace(/<\/?[^>]*>/g,'');
 			res = res.replace(/#easyEditor#/g,'<br />');
-		}
-		if(func) {
-			func.call(this, res);
 		}
 		this.obj.innerHTML = oldHtml;
 		return res;
